@@ -1,0 +1,58 @@
+<div class="max-w-4xl mx-auto">
+  <h1 class="text-2xl font-bold mb-6">Configuración del sistema</h1>
+
+  <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+    <h2 class="text-xl font-semibold mb-4">Configuración de la API de IA</h2>
+
+    <form action="/admin/settings/ai" method="POST" class="space-y-4">
+      <div>
+        <label for="apiKey" class="block text-sm font-medium text-gray-700 mb-1">
+          API Key
+        </label>
+        <input type="password" id="apiKey" name="apiKey" value="<%= config.apiKey %>"
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required>
+      </div>
+
+      <div>
+        <label for="baseURL" class="block text-sm font-medium text-gray-700 mb-1">
+          URL base de la API
+        </label>
+        <input type="url" id="baseURL" name="baseURL" value="<%= config.baseURL %>"
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label for="model" class="block text-sm font-medium text-gray-700 mb-1">Modelo</label>
+          <select id="model" name="model" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+            <option value="image-sm" <%=config.model==='image-sm' ? 'selected' : '' %>>image-sm</option>            
+          </select>
+        </div>
+
+        <div>
+          <label for="size" class="block text-sm font-medium text-gray-700 mb-1">Tamaño predeterminado</label>
+          <select id="size" name="size" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+            <option value="1024x1024" <%=config.size==='1024x1024' ? 'selected' : '' %>>1024x1024</option>            
+            <option value="1792x1024" <%=config.size==='1792x1024' ? 'selected' : '' %>>1792x1024 (horizontal)</option>
+            <option value="1024x1792" <%=config.size==='1024x1792' ? 'selected' : '' %>>1024x1792 (vertical)</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="quality" class="block text-sm font-medium text-gray-700 mb-1">Calidad predeterminada</label>
+          <select id="quality" name="quality" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+            <option value="standard" <%=config.quality==='standard' ? 'selected' : '' %>>Estándar</option>
+            <option value="hd" <%=config.quality==='hd' ? 'selected' : '' %>>Alta definición</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit"
+        class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md transition duration-200">
+        Guardar configuración
+      </button>
+    </form>
+  </div>
+</div>
