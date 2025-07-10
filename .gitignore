@@ -83,7 +83,7 @@ secrets/
 .idea/
 
 # Imágenes subidas
-public/images/*
+public/images/
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
