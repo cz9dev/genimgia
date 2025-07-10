@@ -10,3 +10,10 @@ updates:
     schedule:
       interval: "daily"      # Frecuencia de actualización (daily, weekly, monthly)
     open-pull-requests-limit: 5  # Límite de PRs abiertos a la vez
+    allow:
+      - dependency-type: "production"  # Solo dependencias de producción
+    # Merge automático para parches y versiones menores:
+    automerge: true
+    automerge-strategy: "squash"  # Combina commits en uno solo
+    labels:
+      - "dependencies"
