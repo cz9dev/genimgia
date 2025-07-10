@@ -1,5 +1,5 @@
 
-[![License: Apache 2.0](https://img.shields.io/badge/license-Apache%20License%202.0-blue)](https://opensource.org/license/apache-2-0)).
+[![License: Apache 2.0](https://img.shields.io/badge/license-Apache%20License%202.0-blue)](https://opensource.org/license/apache-2-0).
 
 # 🚀 Genimg IA
 Generador de Imágenes con IA + LDAP
@@ -31,4 +31,4 @@ npm start
 ```
 
 ## Licencia
-[MIT](LICENSE)
+[Apache 2.0](LICENSE)
