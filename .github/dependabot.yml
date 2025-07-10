@@ -8,5 +8,5 @@ updates:
   - package-ecosystem: "npm"  # Ejemplo para npm (JavaScript)
     directory: "/"           # Directorio donde está el package.json
     schedule:
-      interval: "daily"      # Frecuencia de actualización (daily, weekly, monthly)
+      interval: "weekly"      # Frecuencia de actualización (daily, weekly, monthly)
     open-pull-requests-limit: 5  # Límite de PRs abiertos a la vez
