@@ -14,6 +14,5 @@ updates:
       - dependency-type: "production"  # Solo dependencias de producción
     # Merge automático para parches y versiones menores:
     automerge: true
-    automerge-strategy: "squash"  # Combina commits en uno solo
     labels:
       - "dependencies"
