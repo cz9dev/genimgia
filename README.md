@@ -11,8 +11,8 @@ Generador de Imágenes con IA + LDAP
 
 ## Instalación
 ```bash
-git clone https://github.com/tu-usuario/tu-repo.git
-cd tu-repo
+git clone https://github.com/cz9dev/genimgia.git
+cd genimgia
 ```
 
 ## Configuración inicial
