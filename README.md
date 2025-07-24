@@ -21,6 +21,16 @@ git clone https://github.com/cz9dev/genimgia.git
 cd genimgia
 ```
 
+## Certificados SSL para desarrollo
+
+Para generar certificados autofirmados para desarrollo local:
+
+1. Ejecutar: `mkdir -p ssl && cd ssl`
+2. Generar clave privada:  
+   `openssl genrsa -out private-key.pem 2048`
+3. Generar certificado:  
+   `openssl req -new -x509 -key private-key.pem -out certificate.pem -days 365 -subj "/CN=localhost"`
+
 ## Configuración inicial
 1. Copia el archivo de ejemplo:
 ```bash
