@@ -4,6 +4,12 @@
 # 🚀 Genimg IA
 Generador de Imágenes con IA + LDAP
 
+## APIs Soportadas
+[Avangenio de plataformia](https://plataformia.com/)
+
+## Pre-requisitos si decea desplegar en producción
+Si usted deceas desplegar Genimg IA en un ambiente de producción, leer [Despliegue de apps Node.js en producción](https://cz9dev.github.io/16-06-2025-desplegar-aplicacion-nodejs-en-produccion/)
+
 ## Requisitos
 - Node.js 18+
 - SQLite/MariaDB
