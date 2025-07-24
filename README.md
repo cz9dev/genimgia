@@ -4,6 +4,12 @@
 # 🚀 Genimg IA
 Generador de Imágenes con IA + LDAP
 
+## APIs Soportadas
+[Avangenio de plataformia](https://plataformia.com/)
+
+## Pre-requisitos si decea desplegar en producción
+Si usted deceas desplegar Genimg IA en un ambiente de producción, leer [Despliegue de apps Node.js en producción](https://cz9dev.github.io/16-06-2025-desplegar-aplicacion-nodejs-en-produccion/)
+
 ## Requisitos
 - Node.js 18+
 - SQLite/MariaDB
@@ -14,6 +20,16 @@ Generador de Imágenes con IA + LDAP
 git clone https://github.com/cz9dev/genimgia.git
 cd genimgia
 ```
+
+## Certificados SSL para desarrollo
+
+Para generar certificados autofirmados para desarrollo local:
+
+1. Ejecutar: `mkdir -p ssl && cd ssl`
+2. Generar clave privada:  
+   `openssl genrsa -out private-key.pem 2048`
+3. Generar certificado:  
+   `openssl req -new -x509 -key private-key.pem -out certificate.pem -days 365 -subj "/CN=localhost"`
 
 ## Configuración inicial
 1. Copia el archivo de ejemplo:

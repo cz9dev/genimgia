@@ -194,3 +194,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Certificados SSL autofirmados
+ssl/

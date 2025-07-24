@@ -7,6 +7,9 @@ const passport = require('passport');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const path = require('path');
+const http = require("http");
+const https = require("https");
+const fs = require("fs");
 const ldapStrategy = require('./config/ldap.config');
 const { sequelize } = require('./config/db.config');
 const aiConfig = require('./config/ai.config');
@@ -102,6 +105,46 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+
+// Configuración de servidor seguro
+const startServer = () => {
+  // 1. Configuración para producción (HTTPS obligatorio)
+  if (process.env.NODE_ENV === 'production') {
+    try {      
+      https.createServer(app).listen(PORT, () => {
+        console.log(`Servidor PRODUCCIÓN HTTPS en puerto ${PORT}`);
+      });
+      
+    } catch (err) {      
+      console.error('El servidor no puede iniciar sin HTTPS en producción');
+      process.exit(1); // Falla grave en producción
+    }
+  }
+  // 2. Configuración para desarrollo (HTTPS opcional)
+  else {
+    try {
+      const httpsOptions = {
+        key: fs.readFileSync(path.join(__dirname, 'ssl/private-key.pem')),
+        cert: fs.readFileSync(path.join(__dirname, 'ssl/certificate.pem'))
+      };
+      
+      https.createServer(httpsOptions, app).listen(PORT, () => {
+        console.log(`Servidor DESARROLLO HTTPS en https://localhost:${PORT}`);
+      });
+      
+      // Opcional: Redirigir HTTP a HTTPS en desarrollo
+      http.createServer((req, res) => {
+        res.writeHead(301, { 'Location': `https://localhost:${PORT}${req.url}` });
+        res.end();
+      }).listen(3001);
+      
+    } catch (err) {
+      console.log('No se encontraron certificados SSL, usando HTTP en desarrollo');
+      http.createServer(app).listen(PORT, () => {
+        console.log(`Servidor DESARROLLO HTTP en http://localhost:${PORT}`);
+      });
+    }
+  }
+};
+
+startServer();
