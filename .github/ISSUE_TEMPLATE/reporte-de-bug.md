@@ -7,14 +7,6 @@ assignees: cz9dev
 
 ---
 
----
-name: Reporte de Bug
-about: Reportar un problema o comportamiento inesperado
-title: "[BUG] "
-labels: bug
-assignees: ''
----
-
 **Descripción del bug**
 Una descripción clara y concisa de qué es el bug.
 

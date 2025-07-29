@@ -7,14 +7,6 @@ assignees: cz9dev
 
 ---
 
----
-name: Solicitud de característica
-about: Sugerir una idea para el proyecto
-title: "[FEATURE] "
-labels: enhancement
-assignees: ''
----
-
 **Tu solicitud está relacionada con un problema? Por favor describe.**
 Una descripción clara y concisa de cuál es el problema. Ej. "Siempre me frustra cuando [...]"
 
